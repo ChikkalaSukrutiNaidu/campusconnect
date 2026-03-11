@@ -1,0 +1,25 @@
+selected_category = request.GET.get('category')
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Post a Doubt</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="title" class="form-control mb-3" placeholder="Enter doubt title">
+
+    <textarea name="description" class="form-control mb-3" placeholder="Enter description"></textarea>
+
+    <select name="category" class="form-control mb-3">
+        {% for cat in categories %}
+        <option value="{{ cat.id }}">{{ cat.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="btn btn-primary">Post</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<h2>{{ category.name }} - Doubts</h2>
+
+<a href="{% url 'post_doubt' %}?category={{ category.id }}">
+    <button>Post Doubt in This Category</button>
+</a>
+
+<hr>
+
+{% for doubt in doubts %}
+    <div>
+        <h4>
+            <a href="{% url 'doubt_detail' doubt.id %}">
+                {{ doubt.title }}
+            </a>
+        </h4>
+        <p>{{ doubt.description }}</p>
+    </div>
+    <hr>
+{% empty %}
+    <p>No doubts in this category yet.</p>
+{% endfor %}

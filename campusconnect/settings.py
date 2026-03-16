@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://patient-motivation-production-99ca.up.railway.app'
+]
+
 
 # Application definition
 

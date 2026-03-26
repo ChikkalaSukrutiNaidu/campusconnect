@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic --noinput && gunicorn campusconnect.wsgi --bind 0.0.0.0:$PORT
+web: python manage.py migrate && python manage.py shell < create_superuser.py && python manage.py collectstatic --noinput && gunicorn campusconnect.wsgi
